@@ -6,6 +6,10 @@ def autoxlsx():
     wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=True)
     wb.active = 0
     sheet = wb.active
+    colour1 = 'BCE6FF'
+    colour2 = 'BCFFF6'
+    colour3 = 'FFFFFF'
+
     # print(wb.sheetnames)
     # print(sheet['A8'].value)
     # sheet['A8'].value = '№ п/п'
@@ -28,7 +32,7 @@ def autoxlsx():
         vsegoday = 0
         vsegohour = 0
         for cell in rows:
-            cell.fill = openpyxl.styles.PatternFill(start_color='64A064', end_color='64A064', fill_type='solid')
+            cell.fill = openpyxl.styles.PatternFill(start_color=colour1, end_color=colour1, fill_type='solid')
             if str(cell.value).isdigit():
                 sumhour += cell.value
                 counthour += 1
@@ -64,11 +68,11 @@ def autoxlsx():
             if str(cell.value) == 'Б': bolnichny += 1
             if str(cell.value) == 'П': progul += 1
             if sheet.cell(row=45, column=cell.column).value == 'Р' and cell.value != '':
-                cell.fill = openpyxl.styles.PatternFill(start_color='B4F6B4', end_color='B4F6B4', fill_type='solid')
+                cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
                 vsegoday += 1
                 vsegohour += 8
             if sheet.cell(row=45, column=cell.column).value == 'х':
-                cell.fill = openpyxl.styles.PatternFill(start_color='FFFFFF', end_color='FFFFFF', fill_type='solid')
+                cell.fill = openpyxl.styles.PatternFill(start_color=colour3, end_color=colour3, fill_type='solid')
         if komandirovka > 0: sheet.cell(cell.row, column=36).value = komandirovka
         if sumhour > 0: sheet.cell(cell.row, column=45).value = sumhour
         if counthour > 0: sheet.cell(cell.row, column=44).value = counthour
