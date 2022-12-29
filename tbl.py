@@ -19,6 +19,12 @@ def autoxlsx():
         for cell in row:
             cell.value = None
 
+    for row in sheet['E45:AI45']:
+        for cell in row:
+            if cell.value == 'В': cell.fill = openpyxl.styles.PatternFill(start_color=colour1, end_color=colour1, fill_type='solid')
+            if cell.value == 'Р': cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
+            if cell.value == 'х': cell.fill = openpyxl.styles.PatternFill(start_color=colour3, end_color=colour3, fill_type='solid')
+
     for rows in sheet['E13':'AI41']:
         komandirovka = 0
         sumhour = 0
