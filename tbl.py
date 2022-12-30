@@ -23,6 +23,7 @@ def autoxlsx():
         for cell in row:
             if cell.value == 'В': cell.fill = openpyxl.styles.PatternFill(start_color=colour1, end_color=colour1, fill_type='solid')
             if cell.value == 'Р': cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
+            if cell.value == 'Р*': cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
             if cell.value == 'х': cell.fill = openpyxl.styles.PatternFill(start_color=colour3, end_color=colour3, fill_type='solid')
 
     for rows in sheet['E13':'AI41']:
@@ -77,6 +78,10 @@ def autoxlsx():
                 cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
                 vsegoday += 1
                 vsegohour += 8
+            if sheet.cell(row=45, column=cell.column).value == 'Р*' and cell.value != '':
+                cell.fill = openpyxl.styles.PatternFill(start_color=colour2, end_color=colour2, fill_type='solid')
+                vsegoday += 1
+                vsegohour += 7
             if sheet.cell(row=45, column=cell.column).value == 'х':
                 cell.fill = openpyxl.styles.PatternFill(start_color=colour3, end_color=colour3, fill_type='solid')
         if komandirovka > 0: sheet.cell(cell.row, column=36).value = komandirovka
