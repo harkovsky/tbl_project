@@ -8,6 +8,7 @@ def autoxlsx():
     sheet = wb.active
     colour1 = 'BCE6FF'
     colour2 = 'BCFFF6'
+    #colour2 = 'FFFFFF'
     colour3 = 'FFFFFF'
 
     # print(wb.sheetnames)
