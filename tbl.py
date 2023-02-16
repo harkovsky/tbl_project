@@ -2,7 +2,7 @@ import openpyxl
 
 
 def autoxlsx():
-    dest_filename = '202301 Табель ОГМ ПК 250.xlsx'
+    dest_filename = '202302 Табель ОГМ ПК 250.xlsx'
     wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=True)
     wb.active = 0
     sheet = wb.active
