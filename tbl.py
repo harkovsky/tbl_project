@@ -1,5 +1,6 @@
 import openpyxl
-
+from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.utils import quote_sheetname
 
 def autoxlsx():
     dest_filename = '202302 Табель ОГМ ПК 250.xlsx'
@@ -10,6 +11,14 @@ def autoxlsx():
     colour2 = 'BCFFF6'
     #colour2 = 'FFFFFF'
     colour3 = 'FFFFFF'
+
+    dv = DataValidation(type="list", formula1=f"{quote_sheetname('Main')}!$E$48:$AB$48")
+    dv.error ='Такой записи нет в списке'
+    dv.errorTitle = 'Недопустимое значение.'
+    dv.prompt = 'Пожалуйста, выберите время работы из списка'
+    dv.promptTitle = 'Выбор времени работы из списка.'
+    sheet.add_data_validation(dv)
+    dv.add('E13:AI35')        
 
     # print(wb.sheetnames)
     # print(sheet['A8'].value)
