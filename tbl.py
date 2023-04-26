@@ -12,11 +12,11 @@ def autoxlsx():
     #colour2 = 'FFFFFF'
     colour3 = 'FFFFFF'
 
-    dv = DataValidation(type="list", formula1=f"{quote_sheetname('Main')}!$E$48:$AB$48")
-    dv.error ='Такой записи нет в списке'
-    dv.errorTitle = 'Недопустимое значение.'
-    dv.prompt = 'Пожалуйста, выберите время работы из списка'
-    dv.promptTitle = 'Выбор времени работы из списка.'
+    dv = DataValidation(type="list", formula1=f"{quote_sheetname('Main')}!$E$48:$AB$48", allow_blank=True)
+    #dv.error ='Такой записи нет в списке'
+    #dv.errorTitle = 'Недопустимое значение.'
+    #dv.prompt = 'Выберите время работы из списка'
+    #dv.promptTitle = 'Выбор времени работы из списка.'
     sheet.add_data_validation(dv)
     dv.add('E13:AI35')        
 
