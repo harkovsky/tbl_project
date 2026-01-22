@@ -3,6 +3,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import quote_sheetname
 
 def autoxlsx():
+    print('Hallo')
     dest_filename = '202304 Табель ОГМ ПК 250.xlsx'
     wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=True)
     wb.active = 0
