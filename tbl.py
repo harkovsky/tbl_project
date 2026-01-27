@@ -1,10 +1,12 @@
 import openpyxl
+import sys
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import quote_sheetname
 
 def autoxlsx():
+    dest_filename = sys.argv[1]
     print('Hallo')
-    dest_filename = '202304 Табель ОГМ ПК 250.xlsx'
+    #dest_filename = '202304 Табель ОГМ ПК 250.xlsx'
     wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=True)
     wb.active = 0
     sheet = wb.active
