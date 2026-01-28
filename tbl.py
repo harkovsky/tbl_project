@@ -7,7 +7,7 @@ def autoxlsx():
     dest_filename = sys.argv[1]
     print('Hallo')
     #dest_filename = '202304 Табель ОГМ ПК 250.xlsx'
-    wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=True)
+    wb = openpyxl.reader.excel.load_workbook(filename=dest_filename, data_only=False)
     wb.active = 0
     sheet = wb.active
     colour1 = 'BCE6FF'
